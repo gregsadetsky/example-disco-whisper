@@ -1,7 +1,7 @@
 FROM python:3.12.1
 
 # does this work
-RUN apt-get update
+RUN apt update
 RUN apt-get install -y ffmpeg
 
 # docker will not re-pip install if requirements.txt doesn't change
