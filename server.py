@@ -5,12 +5,18 @@ from flask import Flask
 
 app = Flask(__name__)
 
-model = whisper.load_model("turbo")
+print("loading model...")
+model = whisper.load_model("tiny", download_root="/whisperdata")
+print("... model loaded!!")
 
 
 @app.route("/")
 def hello_world():
+    print("index page!! transcribing")
     result = model.transcribe("whisper-example-audio.mp3")
+    print(result)
+    print(result["text"])
+    print("transcribed!!")
     return result["text"]
 
 
