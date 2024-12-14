@@ -9,6 +9,7 @@ WORKDIR /code
 ADD ./requirements.txt /code/requirements.txt
 RUN pip install -r requirements.txt
 
+ADD ./download_model.py /code/download_model.py
 RUN python download_model.py
 
 ADD . /code
